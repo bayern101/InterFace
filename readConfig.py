@@ -1,5 +1,4 @@
 import os
-import codecs
 import configparser
 
 currentDir = os.path.split(os.path.realpath(__file__))[0]
@@ -7,9 +6,8 @@ configPath = os.path.join(currentDir, "config.ini")
 
 class ReadConfig(object):
     def __init__(self):
-        fd = open(configPath)
-        data = fd.read()
-        print(data)
+        self.cf = configparser.ConfigParser()
+        self.cf.read(configPath)
 
     def get_WebURL(self, name):
         value = self.cf.get("WebURL", name)
@@ -25,6 +23,8 @@ class ReadConfig(object):
 
 def main():
     rc = ReadConfig()
+    value = rc.get_WebURL("username")
+    print(value)
 
 if __name__ == '__main__':
     main()
