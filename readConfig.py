@@ -8,10 +8,20 @@ configPath = os.path.join(currentDir, "config.ini")
 class ReadConfig(object):
     def __init__(self):
         fd = open(configPath)
-        data =fd.read()
+        data = fd.read()
+        print(data)
 
-    def getEmail(self, name):
-        value = self.cf
+    def get_WebURL(self, name):
+        value = self.cf.get("WebURL", name)
+        return value
+
+    def get_HTTP(self, name):
+        value = self.cf.get("HTTP", name)
+        return value
+
+    def get_Email(self, name):
+        value = self.cf.get("Email", name)
+        return value
 
 def main():
     rc = ReadConfig()
