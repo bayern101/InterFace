@@ -6,8 +6,6 @@ class Log(object):
     def __init__(self):
 
 
-
-
 def main():
     pass
 
