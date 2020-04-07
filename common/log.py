@@ -4,6 +4,9 @@ import threading
 
 class Log(object):
     def __init__(self):
+        global logPath, resultPath, proDir
+        proDir = readConfig.proDir
+        resultPath = os.path.join(proDir, "result")
 
 def main():
     pass
